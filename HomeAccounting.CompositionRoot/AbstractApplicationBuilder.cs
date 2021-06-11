@@ -15,7 +15,7 @@ namespace HomeAccounting.CompositionRoot
 
         protected abstract void RegisterInfrastructure();
 
-        public void buid()
+        public void Build()
         {
             RegisterDataSource();
             RegisterBuisenessLogic();

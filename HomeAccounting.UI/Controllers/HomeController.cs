@@ -1,4 +1,5 @@
-﻿using HomeAccounting.UI.Models;
+﻿using HomeAccounting.BusinessLogic.Contract;
+using HomeAccounting.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,10 +13,12 @@ namespace HomeAccounting.UI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IAccounting _accountingService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IAccounting accountingService)
         {
             _logger = logger;
+            _accountingService = accountingService;
         }
 
         public IActionResult Index()
@@ -32,6 +35,17 @@ namespace HomeAccounting.UI.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult CreateAccount()
+        {
+            _accountingService.CreteAccount(new Account()
+            {
+                Title = "Test",
+                CreationDate = DateTime.Now.Date
+            }) ;
+
+            return View();
         }
     }
 }
