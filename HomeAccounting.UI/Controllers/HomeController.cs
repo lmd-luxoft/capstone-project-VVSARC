@@ -1,4 +1,5 @@
 ﻿using HomeAccounting.BusinessLogic.Contract;
+using HomeAccounting.BusinessLogic.Contract.dto;
 using HomeAccounting.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,9 +14,9 @@ namespace HomeAccounting.UI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IAccounting _accountingService;
+        private readonly IAccountingService _accountingService;
 
-        public HomeController(ILogger<HomeController> logger, IAccounting accountingService)
+        public HomeController(ILogger<HomeController> logger, IAccountingService accountingService)
         {
             _logger = logger;
             _accountingService = accountingService;
@@ -39,13 +40,24 @@ namespace HomeAccounting.UI.Controllers
 
         public IActionResult CreateAccount()
         {
+
+            _accountingService.CreateAccount(new AccountModel()
+            {
+                Amount = 100,
+                Title = "ACC1",
+                Type = AccountType.Deposit,
+                Params = new object[] { "003900100", "30102810012345678901", "Вклад копилка", 10.00m }                            
+            });
+            
+
+            /*
             _accountingService.CreteAccount(new Account()
             {
                 Title = "Test",
                 CreationDate = DateTime.Now.Date
             }) ;
-
-            return View();
+            */
+            return Json(new { status = true });
         }
     }
 }

@@ -2,6 +2,7 @@
 using HomeAccounting.BusinessLogic.Contract;
 using HomeAccounting.DataSource;
 using HomeAccounting.DataSource.Contract;
+using HomeAccouting.BusinessLogic.EF.AppLogic;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,9 @@ namespace HomeAccounting.CompositionRoot
 
         protected override void RegisterBuisenessLogic()
         {
-            _services.AddTransient<IAccounting, AccountingService>();
+            _services.AddDbContext<DomainContext>();
+           //  _services.AddTransient<IAccounting, AccountingService>();
+             _services.AddTransient< IAccountingService, HomeAccouting.BusinessLogic.EF.AppLogic.AccountingService>();
         }
 
         protected override void RegisterDataSource()
