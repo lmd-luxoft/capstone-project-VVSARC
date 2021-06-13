@@ -7,15 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeAccounting.UI", "HomeAc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeAccounting.Console", "HomeAccounting.Console\HomeAccounting.Console.csproj", "{D8CF7262-32C4-4F25-BE0B-C7EB00DC208C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccounting.BusinessLogic", "HomeAccounting.BusinessLogic\HomeAccounting.BusinessLogic.csproj", "{46CA7692-96F6-473F-8B2A-D564B47F0F31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeAccounting.BusinessLogic", "HomeAccounting.BusinessLogic\HomeAccounting.BusinessLogic.csproj", "{46CA7692-96F6-473F-8B2A-D564B47F0F31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccounting.DataSource.Contract", "HomeAccounting.DataSource.Contract\HomeAccounting.DataSource.Contract.csproj", "{B7A03AFD-7473-4E5C-BEAE-F9219B2242D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeAccounting.DataSource.Contract", "HomeAccounting.DataSource.Contract\HomeAccounting.DataSource.Contract.csproj", "{B7A03AFD-7473-4E5C-BEAE-F9219B2242D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccounting.DataSource", "HomeAccounting.DataSource\HomeAccounting.DataSource.csproj", "{AEFE50A8-4021-4824-AEBD-0EB56CA7E111}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeAccounting.DataSource", "HomeAccounting.DataSource\HomeAccounting.DataSource.csproj", "{AEFE50A8-4021-4824-AEBD-0EB56CA7E111}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccounting.CompositionRoot", "HomeAccounting.CompositionRoot\HomeAccounting.CompositionRoot.csproj", "{9A65A3F3-383D-440B-92C1-7EF85E9AE450}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeAccounting.CompositionRoot", "HomeAccounting.CompositionRoot\HomeAccounting.CompositionRoot.csproj", "{9A65A3F3-383D-440B-92C1-7EF85E9AE450}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccounting.BusinessLogic.Contract", "HomeAccounting.BusinessLogic.Contract\HomeAccounting.BusinessLogic.Contract.csproj", "{6FD56445-3052-4E0B-904F-3C011D8D834E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeAccounting.BusinessLogic.Contract", "HomeAccounting.BusinessLogic.Contract\HomeAccounting.BusinessLogic.Contract.csproj", "{6FD56445-3052-4E0B-904F-3C011D8D834E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccouting.BusinessLogic.EF", "HomeAccouting.BusinessLogic.EF\HomeAccouting.BusinessLogic.EF.csproj", "{5D07230F-E14C-4621-B810-7D92228BFD94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{6FD56445-3052-4E0B-904F-3C011D8D834E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FD56445-3052-4E0B-904F-3C011D8D834E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FD56445-3052-4E0B-904F-3C011D8D834E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D07230F-E14C-4621-B810-7D92228BFD94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D07230F-E14C-4621-B810-7D92228BFD94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D07230F-E14C-4621-B810-7D92228BFD94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D07230F-E14C-4621-B810-7D92228BFD94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
