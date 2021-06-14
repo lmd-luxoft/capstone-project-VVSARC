@@ -9,8 +9,9 @@ namespace HomeAccounting.BusinessLogic.Contract.dto
         public string Title { get; set; }
         public decimal Amount { get; set; }
 
-        public Object[] Params { get; set; }
+        public object P { get; set; }
 
+        public Object[] Params { get; set; }
         public AccountType Type { get; set; }
     }
 

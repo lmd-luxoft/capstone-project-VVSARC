@@ -6,28 +6,22 @@ namespace HomeAccouting.BusinessLogic.EF.Domain
 {
     public class Operation  :Entity
     {
-        public int ExecutionDate
+        public DateTime ExecutionDate
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public decimal Amount
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public IEnumerable<Account> Accounts
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace HomeAccounting.CompositionRoot
         protected override void RegisterBuisenessLogic()
         {
             _services.AddDbContext<DomainContext>();
-           //  _services.AddTransient<IAccounting, AccountingService>();
+           //_services.AddTransient<IAccounting, AccountingService>();
              _services.AddTransient< IAccountingService, HomeAccouting.BusinessLogic.EF.AppLogic.AccountingService>();
         }
 

@@ -8,18 +8,14 @@ namespace HomeAccouting.BusinessLogic.EF.Domain
     {
         public int Delta
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
-        public int RegistationDate
+        public DateTime RegistationDate
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }

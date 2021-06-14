@@ -6,7 +6,7 @@ namespace HomeAccouting.BusinessLogic.EF.Domain
 {
     public class Bank :Entity
     {
-        public string BIK
+        public string Bic
         {
             get;
             set;

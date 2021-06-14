@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HomeAccouting.BusinessLogic.EF.Migrations
 {
-    public partial class operations : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,7 +28,7 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BIK = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Bic = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CorrAccount = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -43,7 +43,7 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ExecutionDate = table.Column<int>(type: "int", nullable: false),
+                    ExecutionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
@@ -148,7 +148,7 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Delta = table.Column<int>(type: "int", nullable: false),
-                    RegistationDate = table.Column<int>(type: "int", nullable: false),
+                    RegistationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PropertyId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HomeAccouting.BusinessLogic.EF.Migrations
 {
     [DbContext(typeof(DomainContext))]
-    [Migration("20210612230858_operations")]
-    partial class operations
+    [Migration("20210614170330_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("BIK")
+                    b.Property<string>("Bic")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CorrAccount")
@@ -73,8 +73,8 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ExecutionDate")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("ExecutionDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -94,8 +94,8 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                     b.Property<int?>("PropertyId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RegistationDate")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("RegistationDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

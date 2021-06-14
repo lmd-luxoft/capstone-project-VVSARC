@@ -8,34 +8,26 @@ namespace HomeAccouting.BusinessLogic.EF.Domain
     {
         public int BaseState
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;         
         }
 
         public string Location
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public IEnumerable<PropertyPriceChange> PropertyPriceChanges
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public PropertyType Type
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
    
