@@ -137,8 +137,8 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                     b.Property<int?>("BankId")
                         .HasColumnType("int");
 
-                    b.Property<int>("NumberOfBankAccount")
-                        .HasColumnType("int");
+                    b.Property<string>("NumberOfBankAccount")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Percent")
                         .HasColumnType("decimal(18,2)");

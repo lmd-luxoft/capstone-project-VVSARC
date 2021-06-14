@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HomeAccouting.BusinessLogic.EF.Migrations
 {
     [DbContext(typeof(DomainContext))]
-    [Migration("20210614170330_init")]
+    [Migration("20210614191225_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -139,8 +139,8 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                     b.Property<int?>("BankId")
                         .HasColumnType("int");
 
-                    b.Property<int>("NumberOfBankAccount")
-                        .HasColumnType("int");
+                    b.Property<string>("NumberOfBankAccount")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Percent")
                         .HasColumnType("decimal(18,2)");

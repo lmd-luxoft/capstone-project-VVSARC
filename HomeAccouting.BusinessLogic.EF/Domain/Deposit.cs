@@ -13,7 +13,7 @@ namespace HomeAccouting.BusinessLogic.EF.Domain
 
         }
 
-        public int NumberOfBankAccount
+        public string NumberOfBankAccount
         {
             get;
             set;

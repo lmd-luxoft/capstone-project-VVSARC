@@ -37,30 +37,34 @@ namespace HomeAccouting.BusinessLogic.EF.AppLogic
                     throw new ArgumentOutOfRangeException("bad type account");
 
             }
+            _ctx.Accounts.Add(newAccount);
+            _ctx.SaveChanges();
         }
 
 
         private Account CreateDeposit(AccountModel account)
         {
-            var bOld = _ctx.Banks.Where(p => p.Bic == (string)account.Params[0]).FirstOrDefault();
-
-            var d = new Deposit
-            {
-                Balance = account.Amount,
-                CreationDate = DateTime.Now.Date,
-                Bank = new Bank()
+            var bank = _ctx.Banks.Where(p => p.Bic == (string)account.Params[0]).FirstOrDefault();
+            if (bank == null)
+                bank = new Bank()
                 {
                     Bic = (string)account.Params[0],
                     CorrAccount = (string)account.Params[1],
-                    Title = (string)account.Params[2],
-                },
+                    Title = (string)account.Params[2]
+                };
+             var d = new Deposit
+            {
+                Balance = account.Amount,
+                CreationDate = DateTime.Now.Date,
+                Bank = bank,
                 Title = account.Title,
-                Percent = (decimal)account.Params[3]
+                Percent =  Convert.ToDecimal(account.Params[3]),
+                Type = (PercentType) Convert.ToInt32(account.Params[4]),
+                NumberOfBankAccount = account.Params[5].ToString()
+
             };
 
-
-            _ctx.Deposites.Add(d);
-            _ctx.SaveChanges();
+            //_ctx.Deposites.Add(d);
             return d;
         }
 
@@ -70,9 +74,11 @@ namespace HomeAccouting.BusinessLogic.EF.AppLogic
             {
                 Balance = account.Amount,
                 CreationDate = DateTime.Now,
-                Location = "Samara",
                 Title = account.Title,
-                Type = (PropertyType)account.Params[0]
+                Type = (PropertyType)Convert.ToInt32(account.Params[0]),
+                Location = account.Params[1].ToString(),
+                BaseState = Convert.ToInt32(account.Params[2])
+
             };
         }
 
@@ -83,8 +89,8 @@ namespace HomeAccouting.BusinessLogic.EF.AppLogic
                 Title = account.Title,
                 Balance = account.Amount,
                 CreationDate = DateTime.Now,
-                Banknotes = (int)account.Amount/100,
-                Monets = (int)account.Amount - (int)account.Amount/100
+                Banknotes = Convert.ToInt32(account.Params[0]),
+                Monets = Convert.ToInt32(account.Params[1])
             };
         }
 

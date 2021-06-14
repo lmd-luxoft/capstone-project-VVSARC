@@ -3,6 +3,7 @@ using HomeAccounting.BusinessLogic.Contract.dto;
 using HomeAccounting.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -38,26 +39,16 @@ namespace HomeAccounting.UI.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult CreateAccount()
+        public IActionResult CreateAccount(string Account)
         {
 
-            _accountingService.CreateAccount(new AccountModel()
-            {
-                Amount = 100,
-                Title = "ACC1",
-                Type = AccountType.Deposit,
-                Params = new object[] { "003900100", "30102810012345678901", "Вклад копилка", 10.00m }                            
-            });
-            
-
-            /*
-            _accountingService.CreteAccount(new Account()
-            {
-                Title = "Test",
-                CreationDate = DateTime.Now.Date
-            }) ;
-            */
+            var model = JsonConvert.DeserializeObject<AccountModel>(Account);
+            _accountingService.CreateAccount(model);
             return Json(new { status = true });
+       
         }
+
+
     }
+
 }

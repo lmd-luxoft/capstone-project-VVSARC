@@ -96,7 +96,7 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
                     Percent = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    NumberOfBankAccount = table.Column<int>(type: "int", nullable: false),
+                    NumberOfBankAccount = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BankId = table.Column<int>(type: "int", nullable: true),
                     Type = table.Column<int>(type: "int", nullable: false)
                 },

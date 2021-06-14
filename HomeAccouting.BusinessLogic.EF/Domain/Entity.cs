@@ -8,10 +8,8 @@ namespace HomeAccouting.BusinessLogic.EF.Domain
     {
         public int Id
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }
