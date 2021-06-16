@@ -38,7 +38,7 @@ namespace HomeAccouting.BusinessLogic.EF.AppLogic
 
             }
             _ctx.Accounts.Add(newAccount);
-            _ctx.SaveChanges();
+            _ctx.SaveChangesAsync();
         }
 
 
