@@ -47,8 +47,10 @@ namespace HomeAccouting.BusinessLogic.EF.AppLogic
             modelBuilder.Entity<Cash>().ToTable("Cashes");
             modelBuilder.Entity<Property>().ToTable("Properties").HasMany<PropertyPriceChange>(x => x.PropertyPriceChanges);
             modelBuilder.Entity<PropertyPriceChange>();
-            modelBuilder.Entity<Operation>().HasMany<Account>(x => x.Accounts)
-            .WithMany(r => r.Operations)
+            modelBuilder.Entity<Account>().HasMany<Operation>(x => x.DebetOperations).WithOne(x=>x.DebetAccount);
+            modelBuilder.Entity<Account>().HasMany<Operation>(x => x.CreditOperations).WithOne(x => x.CreditAccount);
+
+            /*
             .UsingEntity<Dictionary<string, object>>(
                 "OperationsAccounts",
                 j => j.HasOne<Account>()
@@ -58,7 +60,7 @@ namespace HomeAccouting.BusinessLogic.EF.AppLogic
                     .HasOne<Operation>()
                     .WithMany()
                     .HasForeignKey("OperationID"));
-
+            */
 
 
         }

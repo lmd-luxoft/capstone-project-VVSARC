@@ -38,20 +38,6 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Operations",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ExecutionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Operations", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Cashes",
                 columns: table => new
                 {
@@ -65,6 +51,35 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                     table.ForeignKey(
                         name: "FK_Cashes_Accounts_Id",
                         column: x => x.Id,
+                        principalTable: "Accounts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Operations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ExecutionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    DebetAccountId = table.Column<int>(type: "int", nullable: true),
+                    CreditAccountId = table.Column<int>(type: "int", nullable: true),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Operations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Operations_Accounts_CreditAccountId",
+                        column: x => x.CreditAccountId,
+                        principalTable: "Accounts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Operations_Accounts_DebetAccountId",
+                        column: x => x.DebetAccountId,
                         principalTable: "Accounts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -118,30 +133,6 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OperationsAccounts",
-                columns: table => new
-                {
-                    AccountID = table.Column<int>(type: "int", nullable: false),
-                    OperationID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OperationsAccounts", x => new { x.AccountID, x.OperationID });
-                    table.ForeignKey(
-                        name: "FK_OperationsAccounts_Accounts_AccountID",
-                        column: x => x.AccountID,
-                        principalTable: "Accounts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_OperationsAccounts_Operations_OperationID",
-                        column: x => x.OperationID,
-                        principalTable: "Operations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "PricesChanges",
                 columns: table => new
                 {
@@ -168,9 +159,14 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                 column: "BankId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OperationsAccounts_OperationID",
-                table: "OperationsAccounts",
-                column: "OperationID");
+                name: "IX_Operations_CreditAccountId",
+                table: "Operations",
+                column: "CreditAccountId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Operations_DebetAccountId",
+                table: "Operations",
+                column: "DebetAccountId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PricesChanges_PropertyId",
@@ -187,16 +183,13 @@ namespace HomeAccouting.BusinessLogic.EF.Migrations
                 name: "Deposites");
 
             migrationBuilder.DropTable(
-                name: "OperationsAccounts");
+                name: "Operations");
 
             migrationBuilder.DropTable(
                 name: "PricesChanges");
 
             migrationBuilder.DropTable(
                 name: "Banks");
-
-            migrationBuilder.DropTable(
-                name: "Operations");
 
             migrationBuilder.DropTable(
                 name: "Properties");

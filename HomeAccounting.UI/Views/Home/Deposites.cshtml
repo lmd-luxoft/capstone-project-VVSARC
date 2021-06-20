@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Депозиты";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<form id="frmCreateAccount" dataModelName="Deposit">
+    <label for="title">Наименование:</label><br>
+    <input type="text" name="title" value="" minlength="1" maxlength="250"><br>
+    <label for="amount">Остаток:</label><br>
+    <input type="number" name="amount" value="0" min="0" max="99999999"><br>
+    <label for="bic">БИК банка:</label><br>
+    <input type="text" name="bic" value="" minlength="9" maxlength="9"><br>
+    <label for="bankName">Наименование банка:</label><br>
+    <input type="text" name="bankName" value="" minlength="1" maxlength="250"><br>
+    <label for="corrAccount">Кор.счет банка:</label><br>
+    <input type="text" name="corrAccount" value="" minlength="20" maxlength="20"><br>
+    <label for="numberOfBankAccount">Номер счета в банке:</label><br>
+    <input type="text" name="numberOfBankAccount" value="" minlength="20" maxlength="20"><br>
+    <label for="percent">Процент:</label><br>
+    <input type="number" name="percent" value="0.00" min="0.00" max="100.00"><br>
+    <label for="type">Тип депозита:</label><br>
+    <select id="type" name="type">
+        <option value="0">Сумма</option>
+        <option value="1">Процент</option>
+    </select>
+    <br>
+    <br>
+    <input type="reset" name="reset" />
+    <button id="CreateAccount" dataModelName="Deposit">Создать депозит</button>
+</form>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/js/account-operation.js">
+    </script>
+}

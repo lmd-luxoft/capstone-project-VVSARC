@@ -26,6 +26,7 @@ namespace HomeAccounting.UI.Controllers
             _logger = logger;
             _accountingService = accountingService;
             _config = config;
+
         }
 
         public IActionResult Index()
@@ -48,12 +49,11 @@ namespace HomeAccounting.UI.Controllers
         public IActionResult CreateAccount(string Account)
         {
             var model = JsonConvert.DeserializeObject<AccountModel>(Account);
-           // _accountingService.CreateAccount(model);
-
             var task = new Task(() =>
             {
                 try
                 {
+                    
                     var addrFrom = _config.GetValue<string>("Mail:From");
                     var addrTo = _config.GetValue<string>("Mail:To");
                     var host = _config.GetValue<string>("Mail:Host");
@@ -90,7 +90,12 @@ namespace HomeAccounting.UI.Controllers
        
         }
 
-
+        public IActionResult Deposites()
+        {
+            ViewData["Message"] = "Работа с депозитами.";
+            ViewData["Title"] = "с депозитами.";
+            return View();
+        }
     }
 
 }

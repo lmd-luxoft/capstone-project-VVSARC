@@ -23,6 +23,7 @@ namespace HomeAccounting.CompositionRoot
             _services.AddDbContext<DomainContext>();
            //_services.AddTransient<IAccounting, AccountingService>();
              _services.AddTransient< IAccountingService, HomeAccouting.BusinessLogic.EF.AppLogic.AccountingService>();
+            _services.AddTransient<ISendEmailService, SendEmailService>();
         }
 
         protected override void RegisterDataSource()

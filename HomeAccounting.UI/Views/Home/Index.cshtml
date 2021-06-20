@@ -1,8 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Главная";
 }
+<h1>Провести операцию</h1>
+<form id="frmCreateOperation">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <label for="debetAccountId">Дебет:</label><br>
+    <select id="debetAccountId" name="debetAccountId"></select><br>
+    <label for="creditAccountId">Кредит:</label><br>
+    <select id="creditAccountId" name="creditAccountId"></select><br>
+    <label for="amount">Сумма:</label><br>
+    <input type="number" name="amount" value="0" min="0" max="99999999"><br>
+    <label for="comment">Комментарий:</label><br>
+    <input type="text" name="comment" maxlength="250"><br><br>
+    <input type="reset" name="reset" /><br>
+
+    <button id="CreateOperation">Создать операцию</button>
+</form>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/js/account-operation.js"></script>
+}

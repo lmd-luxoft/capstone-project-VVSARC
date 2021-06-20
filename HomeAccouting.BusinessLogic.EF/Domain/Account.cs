@@ -26,12 +26,17 @@ namespace HomeAccouting.BusinessLogic.EF.Domain
 
         }
 
-        public IEnumerable<Operation> Operations
+
+        public IEnumerable<Operation> DebetOperations
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+        }
+
+        public IEnumerable<Operation> CreditOperations
+        {
+            get;
+            set;
         }
     }
 }

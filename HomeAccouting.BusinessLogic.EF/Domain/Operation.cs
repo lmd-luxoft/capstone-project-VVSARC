@@ -18,10 +18,22 @@ namespace HomeAccouting.BusinessLogic.EF.Domain
             set;
         }
 
-        public IEnumerable<Account> Accounts
+        public Account DebetAccount
         {
             get;
             set;
+        }
+
+        public Account CreditAccount
+        {
+            get;
+            set;
+        }
+
+        public string Comment
+        {
+            get;
+            set;        
         }
     }
 }

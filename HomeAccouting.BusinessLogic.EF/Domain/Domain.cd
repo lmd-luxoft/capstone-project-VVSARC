@@ -10,11 +10,12 @@
   <Class Name="HomeAccouting.BusinessLogic.EF.Domain.Account">
     <Position X="5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAACAAAAAEAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAEAAAAgAAAAAAggAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Account.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="Operations" />
+      <Property Name="DebetOperations" />
+      <Property Name="CreditOperations" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="HomeAccouting.BusinessLogic.EF.Domain.Property">
@@ -31,17 +32,21 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="HomeAccouting.BusinessLogic.EF.Domain.Operation">
-    <Position X="8.25" Y="1" Width="1.5" />
+    <Position X="8" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAACAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAABAAAAAAAAAACAAAAAAAAAAACCAAAAAAA=</HashCode>
       <FileName>Domain\Operation.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Accounts" />
-    </ShowAsCollectionAssociation>
+    <ShowAsAssociation>
+      <Property Name="CreditAccount" />
+      <Property Name="DebetAccount" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="HomeAccouting.BusinessLogic.EF.Domain.Deposit">
     <Position X="8.25" Y="5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAQAACAAAAAA=</HashCode>
       <FileName>Domain\Deposit.cs</FileName>
@@ -66,7 +71,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="HomeAccouting.BusinessLogic.EF.Domain.Bank">
-    <Position X="9.25" Y="2.75" Width="1.5" />
+    <Position X="8.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAACAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Bank.cs</FileName>
